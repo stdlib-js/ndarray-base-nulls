@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,24 +16,19 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var empty = require( '@stdlib/ndarray-base-empty' );
-var fill = require( '@stdlib/ndarray-base-fill' );
-
-
-// MAIN //
+import { Shape, Order, genericndarray, GenericDataType } from '@stdlib/types/ndarray';
 
 /**
-* Creates a null-filled ndarray having a specified shape and data type.
+* Creates a null-filled array having a specified shape and data type.
 *
-* @param {*} dtype - data type
-* @param {NonNegativeIntegerArray} shape - array shape
-* @param {string} order - array order
-* @throws {TypeError} first argument must be a recognized data type
-* @returns {ndarray} ndarray
+* @param dtype - underlying data type
+* @param shape - array shape
+* @param order - specifies whether an array is row-major (C-style) or column-major (Fortran-style)
+* @returns null-filled array
 *
 * @example
 * var getDType = require( '@stdlib/ndarray-dtype' );
@@ -44,11 +39,9 @@ var fill = require( '@stdlib/ndarray-base-fill' );
 * var dt = String( getDType( arr ) );
 * // returns 'generic'
 */
-function nulls( dtype, shape, order ) {
-	return fill( empty( dtype, shape, order ), null );
-}
+declare function nulls( dtype: GenericDataType, shape: Shape, order: Order ): genericndarray<null>;
 
 
 // EXPORTS //
 
-module.exports = nulls;
+export = nulls;
